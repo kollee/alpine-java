@@ -19,6 +19,7 @@ ENV JAVA_VERSION 8u92
 ENV JAVA_ALPINE_VERSION 8.92.14-r1
 
 RUN set -x \
-	&& apk add --no-cache \
-		openjdk8-jre="$JAVA_ALPINE_VERSION" \
-	&& [ "$JAVA_HOME" = "$(docker-java-home)" ]
+  && apk upgrade --no-cache \
+  && apk add --no-cache \
+    openjdk8-jre="$JAVA_ALPINE_VERSION" \
+  && [ "$JAVA_HOME" = "$(docker-java-home)" ]
